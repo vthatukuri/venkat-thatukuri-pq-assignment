@@ -1,0 +1,14 @@
+[
+	{
+		"name": "Payconiq",
+		"currentPrice": 200.01
+	},
+	{
+		"name": "Amazon",
+		"currentPrice": 700.12
+	},
+	{
+		"name": "Microsoft",
+		"currentPrice": 600.001
+	}
+]

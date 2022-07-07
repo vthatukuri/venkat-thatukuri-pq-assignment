@@ -1,0 +1,43 @@
+server:
+  servlet:
+    context-path: /api
+    
+spring:
+  datasource:
+    url: "jdbc:mysql://localhost:3306/stocksdb?createDatabaseIfNotExist=true"
+    username: root
+    password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    #database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: update
+    hibernate.naming.physical-strategy : org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+  mvc.pathmatch.matching-strategy: ant_path_matcher    
+  
+logging:
+  file:
+    name: logs/stock.log
+    max-size: 10MB
+    total-size-cap: 20GB
+    max-history: 30
+    clean-history-on-start: true
+  pattern:
+    rolling-file-name: /logs/archived/stocks-%d{yyyy-MM-dd}.%i.log
+    console: "%black(%d{ISO8601}) [UUID:%X{correlationId}] [SESSION-ID:%X{sessionId}] %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    root: INFO
+
+app:
+  name: Payconiq Stock API
+  api:
+    title: Payconiq Stock API's
+    version: 1.0.0
+    description: API's for stock application
+    basePackage: com.payconiq
+    contactName: Payconiq Support Team
+    contactEmail: suport@payconiq.com
+    swagger:
+      enable: true
+     
